@@ -1,0 +1,29 @@
+{
+  "name": "semantic-web",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.16.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.0",
+    "express": "~4.14.1",
+    "hbs": "~4.0.1",
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.2"
+  },
+  "description": "A project for a course at FH Kufstein",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ValeSauer/semantic-web.git"
+  },
+  "author": "Tinky Winky, Dibsy, Lala, Po",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ValeSauer/semantic-web/issues"
+  },
+  "homepage": "https://github.com/ValeSauer/semantic-web#readme"
+}
