@@ -1,5 +1,3 @@
-const config = {
-  "googleMapsApiKey": ""
+module.exports = function() {
+  this.googleMapsApiKey = ""
 }
-
-export config
