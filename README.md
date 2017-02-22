@@ -9,8 +9,10 @@ A project for a course at FH Kufstein
 
   ```npm install```
 
-3. Starten
+3. config.dist.js in config.js kopieren und die entsprechenden Tokens ergänzen
+
+4. Starten
 
   ```npm start```
 
-4. Im Browser aufrufen: http://localhost:3000
+5. Im Browser aufrufen: http://localhost:3000
