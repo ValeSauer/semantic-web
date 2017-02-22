@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var rdf = require('rdf-ext');
+
 var Config = require('../config');
 var config = new Config();
 
