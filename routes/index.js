@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-var Config = require('../config');
-var config = new Config();
-
 var request = require('request');
 var urlencode = require('urlencode');
+
+var Config = require('../config');
+var config = new Config();
 
 var query = "SELECT ?subj ?label ?coord ?elev ?picture WHERE { " +
   "?subj wdt:P2044 ?elev. " +
@@ -19,18 +19,20 @@ var query = "SELECT ?subj ?label ?coord ?elev ?picture WHERE { " +
   "FILTER(?elev > 3000)  " +
   "}" +
   "ORDER BY RAND() " +
-  "LIMIT 4"
-
-request('https://query.wikidata.org/sparql?format=json&query=' + urlencode(query), function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    console.log(body) // Show the HTML for the Google homepage.
-  }
-})
+  "LIMIT 10"
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log("test" + config);
-  res.render('index', { title: 'Express'});
+
+  var mountains = request('https://query.wikidata.org/sparql?format=json&query=' + urlencode(query), function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var result = JSON.parse(body).results.bindings[1];
+      console.log("Request done");
+      console.log(result);
+      res.render('index', { name: result.label.value, coordinates: result.coord.value ,image: result.picture.value });
+    }
+    return false;
+  })
 });
 
 module.exports = router;
