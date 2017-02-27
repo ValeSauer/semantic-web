@@ -30,7 +30,7 @@ request('https://query.wikidata.org/sparql?format=json&query=' + urlencode(query
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log("test" + config);
-  res.render('index', { title: 'Express', ApiKey: config.googleMapsApiKey });
+  res.render('index', { title: 'Express'});
 });
 
 module.exports = router;
