@@ -1,25 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-var SparqlClient = require('sparql-client-2');
-
 var Config = require('../config');
 var config = new Config();
 
-//var endpoint = 'https://query.wikidata.org/sparql?query=SPARQL';
+var request = require('request');
+var urlencode = require('urlencode');
 
-// Get the leaderName(s) of the 10 cities
-var query = "SELECT * FROM <http://dbpedia.org> WHERE { " +
-  "?city <http://dbpedia.org/property/leaderName> ?leaderName " +
-  "} LIMIT 10";
-var client = new SparqlClient( 'http://dbpedia.org/sparql')
-  .register({db: 'http://dbpedia.org/resource/'});
+var query = "SELECT DISTINCT ?city ?coor ?range WHERE { ?city wdt:P31 wd:Q515. ?city ?range wd:Q40. ?city wdt:P625 ?coor. }";
 
-client.query(query)
-  .bind('city', {db: 'Vienna'})
-  .execute(function(error, results) {
-    console.dir(arguments, {depth: null});
-  });
+request('https://query.wikidata.org/sparql?format=json&query=' + urlencode(query), function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body) // Show the HTML for the Google homepage.
+  }
+})
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
