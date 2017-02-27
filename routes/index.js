@@ -7,7 +7,19 @@ var config = new Config();
 var request = require('request');
 var urlencode = require('urlencode');
 
-var query = "SELECT DISTINCT ?city ?coor ?range WHERE { ?city wdt:P31 wd:Q515. ?city ?range wd:Q40. ?city wdt:P625 ?coor. }";
+var query = "SELECT ?subj ?label ?coord ?elev ?picture WHERE { " +
+  "?subj wdt:P2044 ?elev. " +
+  "?subj wdt:P625 ?coord. " +
+  "?subj wdt:P17 wd:Q40. " +
+  "?subj wdt:P18 ?picture. " +
+  "SERVICE wikibase:label { " +
+  "bd:serviceParam wikibase:language 'de'. " +
+  "?subj rdfs:label ?label. " +
+  "} " +
+  "FILTER(?elev > 3000)  " +
+  "}" +
+  "ORDER BY RAND() " +
+  "LIMIT 4"
 
 request('https://query.wikidata.org/sparql?format=json&query=' + urlencode(query), function (error, response, body) {
   if (!error && response.statusCode == 200) {
