@@ -7,6 +7,16 @@ var urlencode = require('urlencode');
 var Config = require('../config');
 var config = new Config();
 
+var GeoPoint = function(point){
+  this.lat = null;
+  this.long = null;
+    if(point){
+      var parts = point.split(" ");
+      this.lat = parts[1].split(")")[0];
+      this.long = parts[0].split("(")[1];
+    }
+}
+
 var query = "SELECT ?subj ?label ?coord ?elev ?picture WHERE { " +
   "?subj wdt:P2044 ?elev. " +
   "?subj wdt:P625 ?coord. " +
@@ -19,7 +29,7 @@ var query = "SELECT ?subj ?label ?coord ?elev ?picture WHERE { " +
   "FILTER(?elev > 3000)  " +
   "}" +
   "ORDER BY RAND() " +
-  "LIMIT 10"
+  "LIMIT 10";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -28,8 +38,8 @@ router.get('/', function(req, res, next) {
     if (!error && response.statusCode == 200) {
       var result = JSON.parse(body).results.bindings[1];
       console.log("Request done");
-      console.log(result);
-      res.render('index', { name: result.label.value, coordinates: result.coord.value ,image: result.picture.value });
+      var point = new GeoPoint(result.coord.value);
+      res.render('index', { name: result.label.value, coordinates: result.coord.value ,image: result.picture.value, lat: point.lat, long: point.long });
     }
     return false;
   })
