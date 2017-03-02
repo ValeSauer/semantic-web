@@ -16,3 +16,10 @@ A project for a course at FH Kufstein
   ```npm start```
 
 5. Im Browser aufrufen: http://localhost:3000
+
+
+
+*Where to find stuff*
+
+BlingBling: semantic-web -> views -> index.hbs
+BlackMagic: semantic-web -> routes -> index.js
