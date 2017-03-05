@@ -1,0 +1,256 @@
+/* this is an example of a query object.
+ * nice to know:
+ * - results.bindings.label = Name as string/literal
+ * - results.bindings.picture = Picture as URI
+ * - results.bindings.coord = Location as point coordinates
+ * - results.bindings.elev = Height as literal
+ */
+
+{
+  "head" : {
+    "vars" : [ "subj", "label", "coord", "elev", "picture" ]
+  },
+  "results" : {
+    "bindings" : [ {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q1286"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "4810.9"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Alpenrelief%2001.jpg"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(10.0 46.0)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Alpen"
+      }
+    }, {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q3388"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "3798"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Gro%C3%9Fglockner1.jpg"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(12.694444444 47.075)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Großglockner"
+      }
+    }, {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16588"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "3312"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Piz%20Buin%20vom%20Ochsentaler%20Gletscher%20HQ.jpg"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(10.119722 46.845556)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Piz Buin"
+      }
+    }, {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q16688"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "3244"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Silvrettahorn%20Schneeglocke%20Schattenspitze.JPG"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(10.093055555 46.856944444)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Silvrettahorn"
+      }
+    }, {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q63817"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "4049"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Tschierva%20glacier%20rework.jpg"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(12.0 47.0)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Ostalpen"
+      }
+    }, {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q190348"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "4049"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Pan%20venediger%20klein.jpg"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(13.0 47.0)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Zentrale Ostalpen"
+      }
+    }, {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q175160"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "3358"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/SeekogelFromE.jpg"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(10.8108 46.9714)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Seekogel"
+      }
+    }, {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q180378"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "3418"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/WilderFreiger2012.jpg"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(11.189722222 46.970555555)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Wilder Freiger"
+      }
+    }, {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q124453"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "3283"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/1024%20Kaiser-Franz-Josefs-H%C3%B6he%20vom%20Gamsgrubenweg%20aus-3049.jpg"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(12.8042 46.9483)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Schobergruppe"
+      }
+    }, {
+      "subj" : {
+        "type" : "uri",
+        "value" : "http://www.wikidata.org/entity/Q125939"
+      },
+      "elev" : {
+        "datatype" : "http://www.w3.org/2001/XMLSchema#decimal",
+        "type" : "literal",
+        "value" : "3123"
+      },
+      "picture" : {
+        "type" : "uri",
+        "value" : "http://commons.wikimedia.org/wiki/Special:FilePath/Schareck%20from%20NW.jpg"
+      },
+      "coord" : {
+        "datatype" : "http://www.opengis.net/ont/geosparql#wktLiteral",
+        "type" : "literal",
+        "value" : "Point(13.0178 47.0414)"
+      },
+      "label" : {
+        "xml:lang" : "de",
+        "type" : "literal",
+        "value" : "Schareck"
+      }
+    } ]
+  }
+}
