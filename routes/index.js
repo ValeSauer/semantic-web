@@ -21,11 +21,6 @@ var GeoPoint = function(point){
     }
 }
 
-function rand (bindings) {
-
-  return result;
-}
-
 var Results = function(bindings){
   this.bindings = bindings;
   this.results = [];
