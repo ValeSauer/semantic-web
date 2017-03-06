@@ -61,7 +61,7 @@ router.get('/', function(req, res,/* mM1, mM2, mM3,*/ next) {
       /*var pointMM1 = new GeoPoint(miscMountain1.coord.value);
       var pointMM2 = new GeoPoint(miscMountain2.coord.value);
       var pointMM3 = new GeoPoint(miscMountain3.coord.value);*/
-      res.render('index', { name: result.label.value, coordinates: result.coord.value ,image: result.picture.value, lat: point.lat, long: point.long });
+      res.render('index', { aw1: miscMountain1.label.value, aw2: miscMountain2.label.value, aw3: miscMountain3.label.value, name: result.label.value, coordinates: result.coord.value ,image: result.picture.value, lat: point.lat, long: point.long });
       /*mM1.render('index', { name: miscMountain1.label.value, coordinates: miscMountain1.coord.value ,image: miscMountain1.picture.value, lat: pointMM1.lat, long: pointMM1.long });
       mM2.render('index', { name: miscMountain2.label.value, coordinates: miscMountain2.coord.value ,image: miscMountain2.picture.value, lat: pointMM2.lat, long: pointMM2.long });
       mM3.render('index', { name: miscMountain3.label.value, coordinates: miscMountain3.coord.value ,image: miscMountain3.picture.value, lat: pointMM3.lat, long: pointMM3.long });*/

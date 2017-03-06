@@ -1,9 +1,75 @@
-<h1>{{name}}</h1>
-<p>Coordinates {{coordinates}}</p>
+<!DOCTYPE html>
+<html lang="en">
 
-<p><img src="{{image}}" width="640px"></p>
+<head>
 
-<div id="map"></div>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Portfolio Item - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS
+    <link href="css/portfolio-item.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Berge Quiz</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Berge Quiz
+                    <small>Open Linked Data</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-6">
+               <div id="map"></div>
 <script>
     function initMap() {
 
@@ -13,15 +79,102 @@
         var map = new google.maps.Map(document.getElementById('map'), {
             center: myLatLng,
             scrollwheel: false,
-            zoom: 8
+            zoom: 8,
+            disableDefaultUI: true
         });
 
         var marker = new google.maps.Marker({
             position: myLatLng,
             map: map,
-            title: "{{name}}"
+            title: "Welcher Berg ist hier?"
         });
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{ApiKey}}&callback=initMap"
         async defer></script>
+            </div>
+
+            <div class="col-md-6">
+                 <img class="img-responsive" src="{{image}}" width="100%" alt="">
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row -->
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Welcher Berg wird hier dargestellt?</h3>
+            </div>
+            
+            <script type="text/javascript">
+                
+                //Auswertung
+                
+                function evaluation(a){
+                    if (a == aw4){
+                        alert ("richtig");
+                        location.reload();
+                        document.getElementById("answer").checked = false;
+                    }else{
+                        alert ("falsch");
+                        location.reload();
+                        document.getElementById("answer").checked = false;
+                    }
+                }
+                
+                //Antwortmöglichkeiten in zufälliger Reihenfolge:
+                
+                var aw1 = "{{aw1}}"
+                var aw2 = "{{aw2}}"
+                var aw3 = "{{aw3}}"
+                var aw4 = "{{name}}"
+                               
+                var contents = new Array()
+                contents[0]='<div class="col-sm-3 col-xs-6"><input type="radio" id="answer" name="answer" onclick="evaluation(aw1)" />{{aw1}}</div>'
+                contents[1]='<div class="col-sm-3 col-xs-6"><input type="radio" id="answer" name="answer" onclick="evaluation(aw2)" />{{aw2}}</div>'
+                contents[2]='<div class="col-sm-3 col-xs-6"><input type="radio" id="answer" name="answer" onclick="evaluation(aw3)" />{{aw3}}</div>'
+                contents[3]='<div class="col-sm-3 col-xs-6"><input type="radio" id="answer" name="answer" onclick="evaluation(aw4)" />{{name}}</div>'
+                
+                var i=0
+                var random
+                
+                while(i<contents.length){
+                    random=Math.floor(Math.random()*contents.length)
+                    if (contents[random] !="selected"){
+                        document.write(contents[random])
+                        contents[random]="selected"
+                        i++
+                    }
+                }
+            </script>
+            
+            
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Fuchs, Hollrieder, Jacoby, Sauer</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
