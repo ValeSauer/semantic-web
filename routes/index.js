@@ -1,11 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
+var _ = require('underscore');
+
 var request = require('request');
 var urlencode = require('urlencode');
 
 var Config = require('../config');
 var config = new Config();
+
+var queryLimit = 100;
 
 var GeoPoint = function(point){
   this.lat = null;
@@ -15,6 +19,25 @@ var GeoPoint = function(point){
       this.lat = parts[1].split(")")[0];
       this.long = parts[0].split("(")[1];
     }
+}
+
+function rand (bindings) {
+
+  return result;
+}
+
+var Results = function(bindings){
+  this.bindings = bindings;
+  this.results = [];
+
+  this.add = function(){
+    var result = bindings[Math.floor(Math.random() * (queryLimit - 1))];
+    while (result == null || _.contains(this.results, result)){
+      result = bindings[Math.floor(Math.random() * (queryLimit - 1))];
+    }
+    this.results.push(result);
+    return result;
+  }
 }
 
 //here comes the query
@@ -38,24 +61,13 @@ router.get('/', function(req, res, next) {
   var mountains = request('https://query.wikidata.org/sparql?format=json&query=' + urlencode(query), function (error, response, body) {
     if (!error && response.statusCode == 200) {
 
-        //create four random numbers for our four mountains
-        var min = 1;
-        var max = 100; //this has to be set to our query limit
 
-        function rand (min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+      var results = new Results(JSON.parse(body).results.bindings);
+      var result = results.add();
+      var miscMountain1 = results.add();
+      var miscMountain2 = results.add();
+      var miscMountain3 = results.add();
 
-        //create our four variables
-        var g = rand(min, max); // this is the chosen one
-        var o = rand(min, max); // John Doe #1
-        var i = rand(min, max); // John Doe #2
-        var l = rand(min, max); // John Doe #3
-
-      var result = JSON.parse(body).results.bindings[g];
-      var miscMountain1 = JSON.parse(body).results.bindings[o];
-      var miscMountain2 = JSON.parse(body).results.bindings[i];
-      var miscMountain3 = JSON.parse(body).results.bindings[l];
       console.log("Request done");
       var point = new GeoPoint(result.coord.value);
 

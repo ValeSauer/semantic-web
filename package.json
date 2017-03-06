@@ -14,7 +14,8 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.2",
     "request": "latest",
-    "urlencode": "latest"
+    "urlencode": "latest",
+    "underscore": "latest"
   },
   "description": "A project for a course at FH Kufstein",
   "main": "app.js",
