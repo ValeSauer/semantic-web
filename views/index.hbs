@@ -108,19 +108,26 @@
                 <h3 class="page-header">Welcher Berg wird hier dargestellt?</h3>
             </div>
             
+            <ul>
+            
             <script type="text/javascript">
                 
                 //Auswertung
                 
                 function evaluation(a){
                     if (a == aw4){
-                        alert ("richtig");
-                        location.reload();
-                        document.getElementById("answer").checked = false;
+                        
+                        
+                            alert ("richtig");
+                            //location.reload();    
+                        
+                        
+                        
                     }else{
-                        alert ("falsch");
-                        location.reload();
-                        document.getElementById("answer").checked = false;
+                       
+                            alert ("falsch");
+                            //location.reload();    
+                       
                     }
                 }
                 
@@ -132,10 +139,10 @@
                 var aw4 = "{{name}}"
                                
                 var contents = new Array()
-                contents[0]='<div class="col-sm-3 col-xs-6"><input type="radio" id="answer" name="answer" onclick="evaluation(aw1)" />{{aw1}}</div>'
-                contents[1]='<div class="col-sm-3 col-xs-6"><input type="radio" id="answer" name="answer" onclick="evaluation(aw2)" />{{aw2}}</div>'
-                contents[2]='<div class="col-sm-3 col-xs-6"><input type="radio" id="answer" name="answer" onclick="evaluation(aw3)" />{{aw3}}</div>'
-                contents[3]='<div class="col-sm-3 col-xs-6"><input type="radio" id="answer" name="answer" onclick="evaluation(aw4)" />{{name}}</div>'
+                contents[0]='<div class="col-sm-3 col-xs-6"><div class="container"><ul><li onclick="evaluation(aw1)"><input type="radio" id="a-option" name="answer" /><label for "a-option">{{aw1}}</label><div class="check"><div class="inside"></div></div></li></ul></div></div>'
+                contents[1]='<div class="col-sm-3 col-xs-6"><div class="container"><ul><li onclick="evaluation(aw2)" ><input type="radio" id="b-option" name="answer" /><label for "b-option">{{aw2}}</label><div class="check"><div class="inside"></div></div></li></ul></div></div>'
+                contents[2]='<div class="col-sm-3 col-xs-6"><div class="container"><ul><li onclick="evaluation(aw3)"><input type="radio" id="c-option" name="answer" /><label for "c-option">{{aw3}}</label><div class="check"><div class="inside"></div></div></li></ul></div></div>'
+                contents[3]='<div class="col-sm-3 col-xs-6"><div class="container"><ul><li onclick="evaluation(aw4)"><input type="radio" id="d-option" name="answer" /><label for "d-option">{{name}}</label><div class="check"><div class="inside"></div></div></li></ul></div></div>'
                 
                 var i=0
                 var random
@@ -149,7 +156,7 @@
                     }
                 }
             </script>
-            
+            </ul>
             
         </div>
         <!-- /.row -->
