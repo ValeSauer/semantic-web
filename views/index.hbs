@@ -116,7 +116,9 @@
                 
                 function evaluation(a){
                     if (a == aw4){
+                        
                             document.getElementById("aw4").style.color="#00ff00";
+                        
                             setTimeout(function(){
                                 location.reload();    
                             },3000);
@@ -150,7 +152,7 @@
                 contents[0]='<div class="col-sm-3 col-xs-6"><div class="container"><ul><li onclick="evaluation(aw1)"><input type="radio" id="a-option" name="answer" /><label for "a-option" id="aw1">{{aw1}}</label><div class="check"><div class="inside"></div></div></li></ul></div></div>'
                 contents[1]='<div class="col-sm-3 col-xs-6"><div class="container"><ul><li onclick="evaluation(aw2)" ><input type="radio" id="b-option" name="answer" /><label for "b-option" id="aw2">{{aw2}}</label><div class="check"><div class="inside"></div></div></li></ul></div></div>'
                 contents[2]='<div class="col-sm-3 col-xs-6"><div class="container"><ul><li onclick="evaluation(aw3)"><input type="radio" id="c-option" name="answer" /><label for "c-option" id="aw3">{{aw3}}</label><div class="check"><div class="inside"></div></div></li></ul></div></div>'
-                contents[3]='<div class="col-sm-3 col-xs-6"><div class="container"><ul><li onclick="evaluation(aw4")"><input type="radio" id="d-option" name="answer" /><label for "d-option" id="aw4">{{name}}</label><div class="check"><div class="inside"></div></div></li></ul></div></div>'
+                contents[3]='<div class="col-sm-3 col-xs-6"><div class="container"><ul><li onclick="evaluation(aw4)"><input type="radio" id="d-option" name="answer" /><label for "d-option" id="aw4">{{name}}</label><div class="check"><div class="inside"></div></div></li></ul></div></div>'
                 
                 var i=0
                 var random
