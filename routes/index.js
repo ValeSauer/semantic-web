@@ -9,7 +9,21 @@ var urlencode = require('urlencode');
 var Config = require('../config');
 var config = new Config();
 
-var queryLimit = 100;
+//here comes the query
+var query = "SELECT ?subj ?label ?coord ?elev ?picture WHERE { " +
+    "?subj wdt:P2044 ?elev. " +
+    "?subj wdt:P625 ?coord. " +
+    "?subj wdt:P17 wd:Q40. " +
+    "?subj wdt:P18 ?picture. " +
+    "SERVICE wikibase:label { " +
+    "bd:serviceParam wikibase:language 'de'. " +
+    "?subj rdfs:label ?label. " +
+    "} " +
+    "FILTER(?elev > 3000)  " +
+    "}" +
+    "ORDER BY RAND() ";
+
+var queryLimit = query.length;
 
 var GeoPoint = function(point){
   this.lat = null;
@@ -35,20 +49,7 @@ var Results = function(bindings){
   }
 }
 
-//here comes the query
-var query = "SELECT ?subj ?label ?coord ?elev ?picture WHERE { " +
-  "?subj wdt:P2044 ?elev. " +
-  "?subj wdt:P625 ?coord. " +
-  "?subj wdt:P17 wd:Q40. " +
-  "?subj wdt:P18 ?picture. " +
-  "SERVICE wikibase:label { " +
-  "bd:serviceParam wikibase:language 'de'. " +
-  "?subj rdfs:label ?label. " +
-  "} " +
-  "FILTER(?elev > 3000)  " +
-  "}" +
-  "ORDER BY RAND() " +
-  "LIMIT 100";
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
